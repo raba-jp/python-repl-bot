@@ -42,5 +42,7 @@ class Repl:
         return error
 
     def __clean_file(self):
-        os.remove(self.input_path)
-        os.remove(self.output_path)
+        if os.path.isfile(self.input_path):
+            os.remove(self.input_path)
+        if os.path.isfile(self.output_path):
+            os.remove(self.output_path)
