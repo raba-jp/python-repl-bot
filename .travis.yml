@@ -1,0 +1,16 @@
+sudo: false
+language: python
+python:
+  - 3.6
+env:
+  global:
+    - CODECLIMATE_REPO_TOKEN=6be0741c19eba029f3852387add91c62e4633ce119dd5c1e06d242c8b4b66053
+notifications:
+  slack:
+    secure: EZ23/vI27OavF6fk385v/pQf9VFI+Jin7pPs7WkM9ueu4mbMJN8uZbWqcQ5hYBN55eBrvFUbTj1w3LePAahUdBgpiIokbRSblSj2qfPPpWLc48Vga2IAP1KjY6ONz/S+eJcG2EG87LQXMkv6Z4flrQGj+U2wD1JEyx2ACowaIVrD22riLkoCudx73i05rZGJg/KctwhtY3RhfdfGRgrhf9GGfJwgiuPGrmJ7fOgHQ0N72iwcGoEcFaB1veEd5mNL7s+fo/wTRR2A4Y2/tSA41EQtl0jUrkEEghWK3NJziWjU77mBHrxsFcY5ZogN05zXSoem17JYLouIKEvixJ55pIiDPwgXnN0ZOp5uRixGcD6mHTLjmi5EHh13zT0QWCpsq53+cs2zSgF7hxbXcnblo1mJWttlVDWuHCikB4YXgG1NjJJql2na29JCl7kJc8znKE7NjRcjTDR4HmrCjaBEnuCG5qXGEFQxumRYg9x8L3bS8Jf1AbXVuzCYFvRWSG9NCoYw3dLHoQidhJ1qK9FzyBRhyE+XIQRxsHiDv3/AZGZ2g5XgBiJM9kGcmbe8TbaVaIWa178zPkmG7go5ogzWnOBMmwfnS4PeYHyD9XZl/VJhpuF4m6LPynHkHp2TlyzM88otGKnQllRcQwp66fEICgylUz/QErwfp+C+MXo/uio=
+install:
+  - pip install -r requirements.txt
+script:
+  - nosetests --with-coverage --with-xunit --cover-package=plugins
+after_success:
+  - codeclimate-test-reporter
