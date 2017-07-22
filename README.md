@@ -1,1 +1,3 @@
 # python-repl-bot
+
+[![Build Status](https://travis-ci.org/raba-jp/python-repl-bot.svg?branch=master)](https://travis-ci.org/raba-jp/python-repl-bot) [![Code Climate](https://codeclimate.com/github/raba-jp/python-repl-bot/badges/gpa.svg)](https://codeclimate.com/github/raba-jp/python-repl-bot) [![Coverage](https://codeclimate.com/github/raba-jp/python-repl-bot/badges/coverage.svg)](https://codeclimate.com/github/raba-jp/python-repl-bot/coverage) [![Issue Count](https://codeclimate.com/github/raba-jp/python-repl-bot/badges/issue_count.svg)](https://codeclimate.com/github/raba-jp/python-repl-bot)
