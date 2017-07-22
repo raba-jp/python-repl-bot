@@ -13,33 +13,21 @@ class Repl:
         return self
 
     def run_cmd(self):
-        has_error = self.__create_file()
-        if has_error is not None:
-            return has_error
-
+        self.__create_file()
         result = None
         try:
             command = [self.command, self.input_path]
             result = run(command, stdout=PIPE, stderr=PIPE).stdout
         except Exception as err:
-            result = str(err)
-        return result
+            result = err
+        return str(result)
 
     def __exit__(self, exc_type, exc_value, traceback):
         self.__clean_file()
 
     def __create_file(self):
-        error = None
-        try:
-            input_file = open(self.input_path, 'w')
-            output_file = open(self.output_path, 'w')
-            input_file.write(self.code)
-        except Exception as err:
-            error = str(err)
-        finally:
-            input_file.close()
-            output_file.close()
-        return error
+        with open(self.input_path, 'w') as input, open(self.output_path, 'w'):
+            input.write(self.code)
 
     def __clean_file(self):
         if os.path.isfile(self.input_path):
